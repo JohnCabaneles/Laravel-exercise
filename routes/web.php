@@ -18,11 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('about', function() {
-    return '<h1>About Page</h1>';
+    $about = 'This is a about page';
+    $about2 = 'This is about two';
+    return view('about', compact('about', 'about2'));
 })->name('hello');
 
 Route::get('contact', function () {
-    return '<h1>Contact page</h1>';
+    return view('contact');
 });
 
 Route::get('contact/{id}', function($id) {
