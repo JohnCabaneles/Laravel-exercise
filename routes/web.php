@@ -16,22 +16,47 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', function () {
+    $blogs = [
+    [
+        'title' => 'Title one',
+        'body' => 'This is a body text',
+        'status' => 1,
+    ],
+    [
+        'title' => 'Title two',
+        'body' => 'This is a body text',
+        'status' => 0,
+    ],
+    [
+        'title' => 'Title three',
+        'body' => 'This is a body text',
+        'status' => 0,
+    ],
+    [
+        'title' => 'Title four',
+        'body' => 'This is a body text',
+        'status' => 1,
+    ]
+];
+    return view('home', compact('blogs'));
+});
 
 Route::get('about', function() {
-    return '<h1>About Page</h1>';
-})->name('hello');
+    return view('about');
+})->name('about');
 
 Route::get('contact', function () {
-    return '<h1>Contact page</h1>';
+    return view('contact');
 });
 
 Route::get('contact/{id}', function($id) {
     return $id;
 })->name('edit-contact');
 
-Route::get('home' , function () {
-    return "<a href='".route('edit-contact',1)."'>About</a>";
-});
+// Route::get('home' , function () {
+//     return "<a href='".route('edit-contact',1)."'>About</a>";
+// });
 
 /** Route Grouping */
 
