@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function() {
+    return view('home');
+});
+
 Route::get('about', function() {
     return '<h1>About Page</h1>';
 })->name('hello');
@@ -29,9 +33,9 @@ Route::get('contact/{id}', function($id) {
     return $id;
 })->name('edit-contact');
 
-Route::get('home' , function () {
-    return "<a href='".route('edit-contact',1)."'>About</a>";
-});
+// Route::get('home' , function () {
+//     return "<a href='".route('edit-contact',1)."'>About</a>";
+// });
 
 /** Route Grouping */
 
